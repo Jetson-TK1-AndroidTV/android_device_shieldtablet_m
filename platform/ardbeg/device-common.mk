@@ -126,6 +126,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/ueventd.ardbeg.rc:root/ueventd.ardbeg.rc \
+  $(LOCAL_PATH)/ueventd.ardbeg.rc:root/ueventd.jetson-tk1.rc \
   $(LOCAL_PATH)/ueventd.ardbeg.rc:root/ueventd.laguna.rc \
   $(LOCAL_PATH)/ueventd.ardbeg.rc:root/ueventd.tn8.rc \
   $(LOCAL_PATH)/ueventd.ardbeg.rc:root/ueventd.ardbeg_sata.rc \
@@ -153,6 +154,7 @@ PRODUCT_COPY_FILES += \
 ifeq ($(PLATFORM_IS_NEXT),1)
     PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/../../common/init.tegra_m.rc:root/init.tegra.rc \
+	$(LOCAL_PATH)/fstab.jetson-tk1:root/fstab.jetson-tk1 \
         $(LOCAL_PATH)/fstab_m.tn8:root/fstab.tn8 \
         $(LOCAL_PATH)/fstab_m.ardbeg:root/fstab.ardbeg
 else
@@ -165,16 +167,22 @@ endif
 # ardbeg rc files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power.ardbeg.rc:system/etc/power.ardbeg.rc \
+    $(LOCAL_PATH)/power.jetson-tk1.rc:system/etc/power.jetson-tk1.rc \
     $(LOCAL_PATH)/power.tn8.rc:system/etc/power.tn8.rc \
+    $(LOCAL_PATH)/init.jetson-tk1.rc:root/init.jetson-tk1.rc \
     $(LOCAL_PATH)/init.ardbeg.rc:root/init.ardbeg.rc \
     $(LOCAL_PATH)/init.laguna.rc:root/init.laguna.rc \
     $(LOCAL_PATH)/init.tn8.rc:root/init.tn8.rc \
+    $(LOCAL_PATH)/init.recovery.tn8.rc:root/init.recovery.jetson-tk1.rc \
     $(LOCAL_PATH)/init.recovery.tn8.rc:root/init.recovery.tn8.rc \
+    $(LOCAL_PATH)/init.jetson-tk1_common.rc:root/init.jetson-tk1_common.rc \
     $(LOCAL_PATH)/init.tn8_common.rc:root/init.tn8_common.rc \
+    $(LOCAL_PATH)/init.jetson-tk1_emmc.rc:root/init.jetson-tk1_emmc.rc \
     $(LOCAL_PATH)/init.tn8_emmc.rc:root/init.tn8_emmc.rc \
     $(LOCAL_PATH)/init.ardbeg_sata.rc:root/init.ardbeg_sata.rc \
     $(LOCAL_PATH)/fstab.laguna:root/fstab.laguna \
     $(LOCAL_PATH)/fstab.ardbeg_sata:root/fstab.ardbeg_sata \
+    $(LOCAL_PATH)/init.jetson-tk1.usb.rc:root/init.jetson-tk1.usb.rc \
     $(LOCAL_PATH)/init.tn8.usb.rc:root/init.tn8.usb.rc \
     $(LOCAL_PATH)/../../common/init.nv_dev_board.usb.rc:root/init.nv_dev_board.usb.rc \
     $(LOCAL_PATH)/../../common/init.tlk.rc:root/init.tlk.rc \
@@ -228,7 +236,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(BCMBINARIES_PATH)/bcm43241/bluetooth/AB113_BCM43241B0_0012_Azurewave_AW-AH691_TEST.HCD:system/etc/firmware/bcm43241.hcd \
     $(BCMBINARIES_PATH)/bcm43241/wlan/sdio-ag-pno-p2p-proptxstatus-dmatxrc-rxov-pktfilter-keepalive-aoe-vsdb-wapi-wl11d-sr-srvsdb-opt1.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/bcm43241/fw_bcmdhd.bin \
-    $(BCMBINARIES_PATH)/bcm43241/wlan/nvram_bcm43241.bin:system/vendor/firmware/bcm43241/nvram_bcm43241.bin \
+    $(BCMBINARIES_PATH)/bcm43241/wlan/nvram_bcm43241.bin:vendor/firmware/bcm43241/nvram_bcm43241.bin \
     $(BCMBINARIES_PATH)/bcm43241/wlan/bcm943241ipaagb_p100_hwoob.txt:system/etc/nvram_43241.txt \
     $(BCMBINARIES_PATH)/bcm43241-b4/wlan/nvram_43241.txt:system/etc/nvram_43241-b4.txt \
     $(BCMBINARIES_PATH)/bcm43241-b4/wlan/sdio-ag-pno-p2p-proptxstatus-dmatxrc-rxov-pktfilter-keepalive-aoe-lpc-wl11u-vsdb-wapi-wl11d-sr-srvsdb-tdls-opt1-autoabn-pclose-reassocwar.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/bcm43241-b4/fw_bcmdhd.bin \
